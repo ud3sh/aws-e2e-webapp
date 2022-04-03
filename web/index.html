@@ -33,7 +33,7 @@
                 body: raw,
                 redirect: 'follow'
             };
-            fetch("YOUR-API-INVOKE-URL", requestOptions)
+            fetch("https://fney4oezo7.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
             .then(response => response.text())
             .then(result => alert(JSON.parse(result).body))
             .catch(error => console.log('error', error));
