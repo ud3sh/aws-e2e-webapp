@@ -1,0 +1,1 @@
+https://main.d2w6tcyr0gxmy5.amplifyapp.com/
