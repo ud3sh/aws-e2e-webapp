@@ -23,10 +23,10 @@
     </style>
     <script>
         // define the callAPI function that takes a first name and last name as parameters
-        var callAPI = (firstName,lastName)=>{
+        var callAPI = (expression,email)=>{
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
-            var raw = JSON.stringify({"firstName":firstName,"lastName":lastName});
+            var raw = JSON.stringify({"expression":expression,"email":email});
             var requestOptions = {
                 method: 'POST',
                 headers: myHeaders,
@@ -42,12 +42,12 @@
 </head>
 <body>
     <form>
-        <label>First Name :</label>
-        <input type="text" id="fName">
-        <label>Last Name :</label>
-        <input type="text" id="lName">
+        <label>Expression :</label>
+        <input type="text" id="expression">
+        <label>Your Email :</label>
+        <input type="text" id="email">
         <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">Call API</button>
+        <button type="button" onclick="callAPI(document.getElementById('expression').value,document.getElementById('email').value)">Call API</button>
     </form>
 </body>
 </html>
