@@ -45,6 +45,7 @@
     </script>
 </head>
 <body>
+    <h3>Welcome to Expression Evaluator!</h3>
     <form>
         <label>Expression :</label>
         <input type="text" id="expression" test_id="expression_input">
@@ -53,6 +54,7 @@
         <!-- set button onClick method to call function we defined passing input values as parameters -->
         <button type="button" onclick="callAPI(document.getElementById('expression').value,document.getElementById('email').value)" test_id="expression_submit">Request Solution</button>
     </form>
-    <div id="lastResponse"></div>
+    <br/>
+    <div style="background-color: #FFFFFF" id="lastResponse"></div>
 </body>
 </html>
