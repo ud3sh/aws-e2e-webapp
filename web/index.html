@@ -22,6 +22,10 @@
         }
     </style>
     <script>
+        function updateLastResult(result) {
+            let resultDiv = document.getElementById("lastResponse");
+            resultDiv.innerHTML = `Last Result : <pre>${result}</pre>`;
+        }
         // define the callAPI function that takes a first name and last name as parameters
         var callAPI = (expression,email)=>{
             var myHeaders = new Headers();
@@ -35,7 +39,7 @@
             };
             fetch("https://fney4oezo7.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
             .then(response => response.text())
-            .then(result => alert(JSON.parse(result).body))
+            .then(result => updateLastResult(JSON.parse(result).body))
             .catch(error => console.log('error', error));
         }
     </script>
@@ -43,11 +47,12 @@
 <body>
     <form>
         <label>Expression :</label>
-        <input type="text" id="expression">
+        <input type="text" id="expression" test_id="expression_input">
         <label>Your Email :</label>
-        <input type="text" id="email">
+        <input type="text" id="email" test_id="email_input">
         <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callAPI(document.getElementById('expression').value,document.getElementById('email').value)">Call API</button>
+        <button type="button" onclick="callAPI(document.getElementById('expression').value,document.getElementById('email').value)" test_id="expression_submit">Request Solution</button>
     </form>
+    <div id="lastResponse"></div>
 </body>
 </html>
