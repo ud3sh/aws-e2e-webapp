@@ -22,10 +22,10 @@
         }
     </style>
     <script>
-        function updateLastResult(id, result) {
+        function updateLastResult(result) {
             let resultDiv = document.getElementById("lastResponse");
             resultDiv.innerHTML = `Last Result : <pre>${result}</pre>`;
-            resultDiv.setAttribute('last_result_id', id);
+            resultDiv.setAttribute('last_result_id', result.id);
         }
         // define the callAPI function that takes a first name and last name as parameters
         var callAPI = (expression,email)=>{
@@ -40,7 +40,7 @@
             };
             fetch("https://fney4oezo7.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
             .then(response => response.text())
-            .then(result => updateLastResult(result.id, JSON.parse(result).body))
+            .then(result => updateLastResult(JSON.parse(result).body))
             .catch(error => console.log('error', error));
         }
     </script>
@@ -56,6 +56,6 @@
         <button type="button" onclick="callAPI(document.getElementById('expression').value,document.getElementById('email').value)" test_id="expression_submit">Request Solution</button>
     </form>
     <br/>
-    <div style="background-color: #FFFFFF" id="lastResponse"></div>
+    <div style="background-color: #FFFFFF" id="lastResponse" last_result_id="n/a"></div>
 </body>
 </html>
